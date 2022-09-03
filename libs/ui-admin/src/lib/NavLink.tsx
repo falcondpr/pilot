@@ -26,3 +26,5 @@ export const NavLink: React.FC<NavLinkProps> = ({
     </NextLink>
   );
 };
+
+export default NavLink;
