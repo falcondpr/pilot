@@ -1,10 +1,12 @@
+import React from 'react';
 import { Box } from '@chakra-ui/react';
-import Input from '@pilot/ui-admin';
+import { Input, Text } from '@pilot/ui-admin';
 
 const Index = () => {
   return (
     <Box>
       <Input />
+      <Text>Hello world from Libs nx workspace</Text>
     </Box>
   );
 };
