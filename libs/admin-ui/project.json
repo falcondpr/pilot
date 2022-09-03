@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ui-admin/src",
+  "sourceRoot": "libs/admin-ui/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,14 +8,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/ui-admin/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/admin-ui/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ui-admin"],
+      "outputs": ["coverage/libs/admin-ui"],
       "options": {
-        "jestConfig": "libs/ui-admin/jest.config.ts",
+        "jestConfig": "libs/admin-ui/jest.config.ts",
         "passWithNoTests": true
       }
     }

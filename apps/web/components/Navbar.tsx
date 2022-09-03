@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { GiCardboardBoxClosed } from 'react-icons/gi';
 
-import { NavLink } from '@pilot/ui-admin';
+// import { NavLink } from '@pilot/ui-admin';
 
 const Navbar: React.FC = () => {
   return (
@@ -32,8 +32,8 @@ const Navbar: React.FC = () => {
           Páginas
         </Text>
 
-        <NavLink href="/">Inicio</NavLink>
-        <NavLink href="/">Nosotros</NavLink>
+        {/* <NavLink href="/">Inicio</NavLink>
+        <NavLink href="/">Nosotros</NavLink> */}
       </Box>
     </Box>
   );

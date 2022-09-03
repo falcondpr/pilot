@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pilot/ui-admin": ["libs/ui-admin/src/index.ts"]
+      "@pilot/admin-ui": ["libs/admin-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
