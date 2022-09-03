@@ -5,11 +5,7 @@ interface NavLinkProps extends LinkProps {
   href: string;
 }
 
-export const NavLink: React.FC<NavLinkProps> = ({
-  href,
-  children,
-  ...rest
-}) => {
+const NavLink: React.FC<NavLinkProps> = ({ href, children, ...rest }) => {
   return (
     <NextLink href={href} passHref>
       <Link
@@ -26,3 +22,5 @@ export const NavLink: React.FC<NavLinkProps> = ({
     </NextLink>
   );
 };
+
+export default NavLink;
