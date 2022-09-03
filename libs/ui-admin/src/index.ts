@@ -1,3 +1,3 @@
-export * from './lib/Input';
-export * from './lib/Text';
-export * from './lib/NavLink';
+export { Input } from './lib/Input';
+export { Text } from './lib/Text';
+export { NavLink } from './lib/NavLink';
