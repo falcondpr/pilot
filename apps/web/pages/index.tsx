@@ -1,14 +1,16 @@
-import React from 'react';
+import { NextPage } from 'next';
 import { Box } from '@chakra-ui/react';
 import { Input, Text } from '@pilot/ui-admin';
 
-const Index = () => {
+const Home: NextPage = () => {
   return (
     <Box>
       <Input />
-      <Text>Hello world from Libs nx workspace</Text>
+      <Text color="primary" border="1px solid" borderColor="blue.600">
+        Hello world from Libs nx workspace
+      </Text>
     </Box>
   );
 };
 
-export default Index;
+export default Home;
