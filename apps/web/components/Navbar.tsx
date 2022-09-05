@@ -37,12 +37,11 @@ const Navbar: React.FC = () => {
             Páginas
           </Text>
 
-          <NavLink href="/">Inicio</NavLink>
-          <NavLink href="/">Nosotros</NavLink>
-          <NavLink href="/">Reseñas</NavLink>
-          <NavLink href="/">Productos</NavLink>
-          <NavLink href="/">Clientes</NavLink>
-          <NavLink href="/">Marcas</NavLink>
+          <NavLink href="/admin">Inicio</NavLink>
+          <NavLink href="/admin/nosotros">Nosotros</NavLink>
+          <NavLink href="/admin/resenas">Reseñas</NavLink>
+          <NavLink href="/admin/productos">Productos</NavLink>
+          <NavLink href="/admin/usuarios">Usuarios</NavLink>
         </Box>
 
         <Box p="20px">

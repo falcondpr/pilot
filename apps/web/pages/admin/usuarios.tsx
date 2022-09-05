@@ -3,8 +3,8 @@ import { NextPage } from 'next';
 
 import Layout from '../../components/admin/Layout';
 
-const Admin: NextPage = () => {
-  return <Layout>Inicio</Layout>;
+const Usuarios: NextPage = () => {
+  return <Layout>Usuarios</Layout>;
 };
 
-export default Admin;
+export default Usuarios;
