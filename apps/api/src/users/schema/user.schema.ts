@@ -20,7 +20,7 @@ export class User {
   @Prop({ type: String, required: true })
   avatar: string;
 
-  @Prop({ default: new Date() })
+  @Prop({ default: new Date().toISOString() })
   created_at: string;
 }
 
