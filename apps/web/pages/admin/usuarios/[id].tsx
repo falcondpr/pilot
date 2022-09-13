@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useQuery } from '@tanstack/react-query';
 import { Box, Text } from '@chakra-ui/react';
-import { Input } from '@pilot/admin-ui';
+import { Input, Textarea } from '@pilot/admin-ui';
 
 import Layout from '../../../components/admin/Layout';
 import { getUser } from '../../../utils/users';
@@ -13,6 +13,20 @@ const UsuarioAdmin: NextPage = () => {
   const router = useRouter();
   const [user, setUser] = useState<UserProps | null>(null);
 
+  const [descriptionArray, setDescriptionArray] = useState<string[]>(
+    user?.description || []
+  );
+
+  const handleAddDescription = () => {
+    setDescriptionArray([...descriptionArray, '']);
+  };
+
+  const handleDeleteDescription = (body: string) => {
+    setDescriptionArray((description) =>
+      description.filter((item) => item !== body)
+    );
+  };
+
   const { data, isSuccess } = useQuery(['user', router?.query.id], () =>
     getUser(router?.query.id as string)
   );
@@ -20,6 +34,8 @@ const UsuarioAdmin: NextPage = () => {
   useEffect(() => {
     setUser(data?.data);
   }, [isSuccess, data]);
+
+  console.log(user);
 
   return (
     <Layout>
@@ -31,8 +47,10 @@ const UsuarioAdmin: NextPage = () => {
         <Input label="Email" value={user?.email} />
       </Box>
 
-      <Box mt="20px">
-        <Text>Description</Text>
+      <Box w="50%" mt="20px">
+        {user?.description && (
+          <Textarea array={user.description} label="Description" />
+        )}
       </Box>
     </Layout>
   );

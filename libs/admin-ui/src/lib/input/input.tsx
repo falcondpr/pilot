@@ -7,7 +7,7 @@ import {
 import React, { useRef } from 'react';
 
 interface InputProps extends InputChakraUIProps {
-  label: string;
+  label?: string;
 }
 
 export const Input: React.FC<InputProps> = ({ label, children, ...rest }) => {
