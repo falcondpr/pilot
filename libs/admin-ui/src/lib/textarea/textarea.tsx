@@ -7,12 +7,18 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { ObjectID } from 'bson';
 import { FaPlus, FaTrash } from 'react-icons/fa';
 import produce from 'immer';
 
+export interface DescriptionUser {
+  _id: string;
+  text: string;
+}
+
 interface TextareaProps extends TextareaChakraUIProps {
   label?: string;
-  array?: string[];
+  array?: DescriptionUser[];
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
@@ -20,18 +26,20 @@ export const Textarea: React.FC<TextareaProps> = ({
   label,
   ...rest
 }) => {
-  const [descriptionArray, setDescriptionArray] = useState<string[]>(
-    array as string[]
+  const [descriptionArray, setDescriptionArray] = useState<DescriptionUser[]>(
+    array || []
   );
-  console.log('===', descriptionArray);
 
   const handleAddDescription = () => {
-    setDescriptionArray([...descriptionArray, '']);
+    setDescriptionArray([
+      ...descriptionArray,
+      { _id: new ObjectID().toString(), text: '' },
+    ]);
   };
 
-  const handleDeleteDescription = (body: string) => {
+  const handleDeleteDescription = (id: string) => {
     setDescriptionArray((description) =>
-      description.filter((item) => item !== body)
+      description.filter((item) => item._id !== id)
     );
   };
 
@@ -44,12 +52,17 @@ export const Textarea: React.FC<TextareaProps> = ({
       <Box>
         {descriptionArray.map((description, index: number) => (
           <Grid
-            key={description}
+            key={description._id}
             gridTemplateColumns="40px 1fr repeat(2, 50px)"
             gap="15px"
             mb="20px"
           >
-            <Grid bgColor="#b3b3b3" placeItems="center" rounded="2px">
+            <Grid
+              bgColor="#b3b3b3"
+              placeItems="center"
+              rounded="2px"
+              boxShadow="5px 5px 8px 0px rgba(0,0,0,0.08)"
+            >
               <Text fontWeight="bold" color="white">
                 {index + 1}
               </Text>
@@ -57,20 +70,21 @@ export const Textarea: React.FC<TextareaProps> = ({
             <TextareaChakraUI
               rounded="2px"
               borderColor="#b3b3b3"
-              _hover={{ borderColor: '#b3b3b3' }}
-              _focus={{ borderColor: '#222' }}
-              _focusVisible={{ borderColor: '#222' }}
               boxShadow="5px 5px 8px 0px rgba(0,0,0,0.08)"
               resize="none"
               h="7rem"
               outline="0"
-              // {...rest}
-              value={description}
+              {...rest}
+              _hover={{ borderColor: '#b3b3b3' }}
+              _focus={{ borderColor: '#222' }}
+              _focusVisible={{ borderColor: '#222' }}
+              value={description.text}
               onChange={(e) => {
                 const text = e.target.value;
+
                 setDescriptionArray((currentDescription) =>
                   produce(currentDescription, (v) => {
-                    v[index] = text;
+                    v[index].text = text;
                   })
                 );
               }}
@@ -83,6 +97,7 @@ export const Textarea: React.FC<TextareaProps> = ({
               color="white"
               _hover={{ bgColor: '#8c8c8c' }}
               _focus={{ bgColor: '#a0a0a0' }}
+              boxShadow="5px 5px 8px 0px rgba(0,0,0,0.08)"
               onClick={handleAddDescription}
             >
               <FaPlus />
@@ -95,7 +110,8 @@ export const Textarea: React.FC<TextareaProps> = ({
               color="white"
               _hover={{ bgColor: '#111' }}
               _focus={{ bgColor: '#333' }}
-              onClick={() => handleDeleteDescription(description)}
+              boxShadow="5px 5px 8px 0px rgba(0,0,0,0.08)"
+              onClick={() => handleDeleteDescription(description._id)}
             >
               <FaTrash />
             </Button>

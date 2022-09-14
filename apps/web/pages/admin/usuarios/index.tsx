@@ -24,7 +24,11 @@ const Usuarios: NextPage = () => {
             <Box
               key={user?._id}
               border="1px solid #999"
-              borderTop={index === users?.data.length - 1 && '0'}
+              borderTop={
+                users?.data.length === 1
+                  ? '1px solid #999'
+                  : index === users?.data.length - 1 && '0'
+              }
               p="10px"
               cursor="pointer"
               onClick={() => router.push(`/admin/usuarios/${user?._id}`)}
