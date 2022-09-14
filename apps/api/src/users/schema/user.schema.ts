@@ -14,8 +14,8 @@ export class User {
   @Prop({ type: String, required: true })
   username: string;
 
-  @Prop([Array])
-  description: [];
+  @Prop({ type: [{ text: String }] })
+  description: [{ text: string }];
 
   @Prop({ type: String, required: true })
   avatar: string;

@@ -13,20 +13,6 @@ const UsuarioAdmin: NextPage = () => {
   const router = useRouter();
   const [user, setUser] = useState<UserProps | null>(null);
 
-  const [descriptionArray, setDescriptionArray] = useState<string[]>(
-    user?.description || []
-  );
-
-  const handleAddDescription = () => {
-    setDescriptionArray([...descriptionArray, '']);
-  };
-
-  const handleDeleteDescription = (body: string) => {
-    setDescriptionArray((description) =>
-      description.filter((item) => item !== body)
-    );
-  };
-
   const { data, isSuccess } = useQuery(['user', router?.query.id], () =>
     getUser(router?.query.id as string)
   );
@@ -34,8 +20,6 @@ const UsuarioAdmin: NextPage = () => {
   useEffect(() => {
     setUser(data?.data);
   }, [isSuccess, data]);
-
-  console.log(user);
 
   return (
     <Layout>
