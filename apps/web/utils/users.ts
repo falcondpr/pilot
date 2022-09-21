@@ -17,3 +17,13 @@ export const getUser = async (id: string) => {
 
   return response.data;
 };
+
+export const updateUser = async (id: string, data: any) => {
+  const response = await axios({
+    method: 'PATCH',
+    url: `/users/${id}`,
+    data: JSON.stringify(data),
+  });
+
+  return response.data;
+};

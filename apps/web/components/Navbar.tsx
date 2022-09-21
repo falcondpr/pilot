@@ -8,7 +8,12 @@ import { NavLink } from '@pilot/admin-ui';
 const Navbar: React.FC = () => {
   return (
     <Box width="340px" h="100vh" bgColor="gray.50" position="relative">
-      <Box h="calc(100vh - 150px)" overflowY="scroll" position="relative">
+      <Box
+        h="calc(100vh - 150px)"
+        overflowY="scroll"
+        position="relative"
+        className="hide-scrollbar"
+      >
         {/* TODO: blur bottom */}
         <Box></Box>
 

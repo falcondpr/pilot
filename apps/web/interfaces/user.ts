@@ -13,3 +13,12 @@ export interface UserProps {
   created_at: string;
   __v: number;
 }
+
+export type FileType = {
+  lastModified: number;
+  lastModifiedDate?: Date;
+  name: string;
+  size: number;
+  type: string;
+  webkitRelativePath: string;
+};
