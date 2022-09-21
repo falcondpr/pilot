@@ -12,6 +12,10 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  env: {
+    URL_CLOUDINARY_RES: process.env.URL_CLOUDINARY_RES,
+    PRESET_CLOUDINARY_USER: process.env.PRESET_CLOUDINARY_USER,
+  },
 };
 
 module.exports = withNx(nextConfig);

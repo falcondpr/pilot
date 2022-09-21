@@ -3,6 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { theme } from '../theme';
+import '../theme/styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
