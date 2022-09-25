@@ -63,6 +63,8 @@ const Login = () => {
           mt="20px"
           w="full"
           bgColor="#333"
+          _hover={{ color: '#fff' }}
+          _focus={{ bgColor: '#666' }}
         >
           Ingresar
         </Button>
