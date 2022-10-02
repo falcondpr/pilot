@@ -8,7 +8,7 @@ export interface UserProps {
   name: string;
   email: string;
   username: string;
-  description: DescriptionUser[];
+  description: string;
   avatar: string;
   created_at: string;
   __v: number;
