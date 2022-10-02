@@ -6,3 +6,24 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* width */
+.textarea__description::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.textarea__description::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.textarea__description::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.textarea__description::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,4 +1,4 @@
-import { IsString, IsArray, IsOptional } from 'class-validator';
+import { IsString, IsOptional } from 'class-validator';
 
 export class UpdateUserDto {
   @IsString()
@@ -13,7 +13,7 @@ export class UpdateUserDto {
   @IsOptional()
   username?: string;
 
-  @IsArray()
+  @IsString()
   @IsOptional()
   description?: string[];
 
